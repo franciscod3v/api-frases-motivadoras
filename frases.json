@@ -1,0 +1,122 @@
+[
+    {
+        "id": "1a92c89e-43f2-4f08-91e0-1c34f2015469",
+        "frase": "El éxito es el resultado de la preparación, el trabajo duro y aprender de los fracasos.",
+        "autor": "Colin Powell",
+        "anio": 2007,
+        "claves": [
+            "exito",
+            "motivación"
+        ]
+    },
+    {
+        "id": "2b16b3f6-1a6c-44b1-9d1b-0d61f5b8910e",
+        "frase": "No importa cuántas veces te derriben, sino cuántas veces te levantes.",
+        "autor": "Vince Lombardi",
+        "anio": 1969,
+        "claves": [
+            "perseverancia",
+            "superación"
+        ]
+    },
+    {
+        "id": "3c6f503a-772f-4b11-ba9a-d1ca23b8ce71",
+        "frase": "La vida es un 10% lo que nos sucede y un 90% cómo reaccionamos ante ello.",
+        "autor": "Charles R. Swindoll",
+        "anio": 1998,
+        "claves": [
+            "actitud",
+            "vida"
+        ]
+    },
+    {
+        "id": "4d2716ef-2a97-4d49-bc4b-0fc00d7896ea",
+        "frase": "El futuro pertenece a aquellos que creen en la belleza de sus sueños.",
+        "autor": "Eleanor Roosevelt",
+        "anio": 1940,
+        "claves": [
+            "sueños",
+            "esperanza"
+        ]
+    },
+    {
+        "id": "5e9a5ca4-5811-4e67-9a53-26be20781363",
+        "frase": "El único modo de hacer un gran trabajo es amar lo que haces.",
+        "autor": "Steve Jobs",
+        "anio": 2005,
+        "claves": [
+            "trabajo",
+            "pasión"
+        ]
+    },
+    {
+        "id": "6f94aae2-08e1-4a4f-8a3c-2e31c02ec4d3",
+        "frase": "Si puedes soñarlo, puedes lograrlo.",
+        "autor": "Walt Disney",
+        "anio": 1940,
+        "claves": [
+            "sueños",
+            "logros"
+        ]
+    },
+    {
+        "id": "7cb34e9d-39e7-42ce-8a4e-ec5a0b2f0d06",
+        "frase": "La suerte es lo que sucede cuando la preparación se encuentra con la oportunidad.",
+        "autor": "Seneca",
+        "anio": 50,
+        "claves": [
+            "suerte",
+            "preparación"
+        ]
+    },
+    {
+        "id": "8da693c3-1c05-49d5-94da-75c9b48c97e3",
+        "frase": "El éxito no es la clave de la felicidad. La felicidad es la clave del éxito. Si amas lo que haces, tendrás éxito.",
+        "autor": "Albert Schweitzer",
+        "anio": 1950,
+        "claves": [
+            "exito",
+            "felicidad"
+        ]
+    },
+    {
+        "id": "9b84340f-2d1c-4767-86c0-844b8a6f91d1",
+        "frase": "No te preocupes por los fracasos, preocúpate por las posibilidades que pierdes cuando ni siquiera lo intentas.",
+        "autor": "Jack Canfield",
+        "anio": 2005,
+        "claves": [
+            "fracaso",
+            "oportunidad"
+        ]
+    },
+    {
+        "id": "10d567ea-f9b0-4ed3-ba6f-37c3b938da5f",
+        "frase": "La vida es 10% lo que nos pasa y 90% cómo reaccionamos a ello.",
+        "autor": "Dennis P. Kimbro",
+        "anio": 2000,
+        "claves": [
+            "vida",
+            "actitud"
+        ]
+    },
+    {
+        "id": "11e8b09c-64c0-4e7e-9f84-13d7d29a161f",
+        "frase": "No puedes cruzar el océano simplemente mirando el agua.",
+        "autor": "Christopher Columbus",
+        "anio": 1492,
+        "claves": [
+            "aventura",
+            "determinación"
+        ]
+    },
+    {
+        "id": "12f06758-b8e2-4e4a-b582-5f6824325dbf",
+        "frase": "El trabajo duro vencerá a la genialidad cuando la genialidad no trabaje duro.",
+        "autor": "Tim Notke",
+        "anio": 2007,
+        "claves": [
+            "trabajo-duro",
+            "genialidad"
+        ]
+    }
+]

@@ -1,0 +1,36 @@
+### GET General
+GET http://localhost:1234/frases
+
+### GET filtrando año
+GET http://localhost:1234/frases?anio=1998
+
+### GET filtrando palabras claves
+GET http://localhost:1234/frases?claves=trabajo-duro
+
+### GET filtrando palabra clave y año
+GET http://localhost:1234/frases?anio=1940&claves=sueños
+
+###GET por Id
+GET http://localhost:1234/frases/4d2716ef-2a97-4d49-bc4b-0fc00d7896ea
+
+###POST
+POST http://localhost:1234/frases
+Content-Type: application/json
+
+{
+  "frase": "La paciencia es la clave del éxito.",
+  "autor": "Bill Gates",
+  "anio": 1995,
+  "claves": ["paciencia", "exito"]
+}
+
+###PATCH CON ID
+PATCH http://localhost:1234/frases/4d2716ef-2a97-4d49-bc4b-0fc00d7896ea
+Content-Type: application/json
+
+{
+    "anio": 2021
+}
+
+###DELETE - Borrar con Id
+DELETE http://localhost:1234/frases/4d2716ef-2a97-4d49-bc4b-0fc00d7896ea
