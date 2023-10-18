@@ -5,7 +5,7 @@ GET http://localhost:1234/frases
 GET http://localhost:1234/frases?anio=1998
 
 ### GET filtrando palabras claves
-GET http://localhost:1234/frases?claves=trabajo-duro
+GET http://localhost:1234/frases?claves=sueños
 
 ### GET filtrando palabra clave y año
 GET http://localhost:1234/frases?anio=1940&claves=sueños

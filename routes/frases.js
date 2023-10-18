@@ -10,25 +10,14 @@ const frasesJSON = require('../frases.json')
 
 import { randomUUID } from 'node:crypto'
 
+import { Frase } from "../models/Frase.js"
+
 //GET para todas las frases o frases filtradas por query
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 
     const { anio, claves } = req.query
 
-    let frasesFiltradas = frasesJSON
-
-    if (claves) {
-        frasesFiltradas = frasesFiltradas.filter(
-            frase => frase.claves.some(
-                c => c.toLowerCase() === claves.toLowerCase())
-        )
-    }
-
-    if (anio) {
-        frasesFiltradas = frasesFiltradas.filter(
-            frase => frase.anio.toString() === anio.toString()
-        )
-    }
+    const frasesFiltradas = await Frase.getAll({ anio, claves })
 
     if (frasesFiltradas.length === 0) {
         res.json({ mesagge: 'No encontramos frases con tu filtro' })
@@ -38,12 +27,11 @@ router.get('/', (req, res) => {
 })
 
 //GET de frases por Id
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
+
     const { id } = req.params
 
-    const frase = frasesJSON.find(
-        frase => frase.id === id
-    )
+    const frase = await Frase.getById({ id })
 
     if (frase) {
         return res.json(frase)
