@@ -1,14 +1,18 @@
-const express = require('express')
+import express, { json } from 'express'
 
-const crypto = require('node:crypto')
+import { randomUUID } from 'node:crypto'
 
-const { validarFrases, validarParcialmenteFrases } = require('./schemas/fraseSchema')
+import { validarFrases, validarParcialmenteFrases } from './schemas/fraseSchema.js'
 
 const app = express()
 
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
 const frasesJSON = require('./frases.json')
 
-const cors = require('cors')
+import cors from 'cors'
 
 const PORT = process.env.PORT ?? 1234
 
@@ -93,7 +97,7 @@ app.post('/frases', (req, res) => {
 
     //Creando la frase
     const nuevaFrase = {
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         ...result.data
     }
 

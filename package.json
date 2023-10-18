@@ -8,6 +8,7 @@
   "version": "1.0.0",
   "description": "Api que contiene frases motivadoras",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch app.js",
     "start": "node app.js"

@@ -1,5 +1,5 @@
 //Importamos modulo zod
-const z = require('zod')
+import z from 'zod'
 
 //Creamos objeto fraseSchema
 //z.Object recibe como argumento un objeto que tendra que tener todos los atributos del objeto que tu deseas validar
@@ -22,15 +22,10 @@ const fraseSchema = z.object({
         })
 })
 
-function validarFrases(input) {
+export function validarFrases(input) {
     return fraseSchema.safeParse(input)
 }
 
-function validarParcialmenteFrases(input) {
+export function validarParcialmenteFrases(input) {
     return fraseSchema.partial().safeParse(input)
-}
-
-module.exports = {
-    validarFrases,
-    validarParcialmenteFrases
 }
