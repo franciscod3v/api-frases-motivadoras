@@ -8,9 +8,9 @@ const require = createRequire(import.meta.url)
 
 const frasesJSON = require('../frases.json')
 
-import { randomUUID } from 'node:crypto'
-
 import { Frase } from "../models/Frase.js"
+
+import { validarFrases, validarParcialmenteFrases } from "../schemas/fraseSchema.js"
 
 //GET para todas las frases o frases filtradas por query
 router.get('/', async (req, res) => {
@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 })
 
 //POST
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     //Usamos zod para validar que la peticion cumpla con los requerimientos para ser aceptada
     const result = validarFrases(req.body)
 
@@ -49,14 +49,7 @@ router.post('/', (req, res) => {
         return res.status(400).json({ error: JSON.parse(result.error.message) })
     }
 
-    //Creando la frase
-    const nuevaFrase = {
-        id: randomUUID(),
-        ...result.data
-    }
-
-    //Agregando la nueva frase
-    frasesJSON.push(nuevaFrase)
+    const nuevaFrase = await Frase.create({ input: result.data })
 
     //Mostramos la petición éxitosa
     res.status(201).json(nuevaFrase)
@@ -64,7 +57,8 @@ router.post('/', (req, res) => {
 })
 
 //PATH - Actualizamos una frase por su Id
-router.patch('/:id', (req, res) => {
+router.patch('/:id', async (req, res) => {
+
     //Validar petición
     const result = validarParcialmenteFrases(req.body)
 
@@ -76,46 +70,32 @@ router.patch('/:id', (req, res) => {
     const { id } = req.params
 
     //Buscando Id en Json
-    const FraseIndex = frasesJSON.findIndex(frase => frase.id === id)
+    const fraseActualizada = await Frase.update({ id, input: result.data })
 
-    //Verificando si encontró el Id
-    if (FraseIndex === -1) {
-        return res.status(404).json({ message: 'Frase no encontrada' })
+    if (!fraseActualizada.valor) {
+        return res.status(404).json(fraseActualizada.mesagge)
+    } else {
+        return res.json(fraseActualizada.message)
     }
-
-    //Creando la frase actualizada
-    const fraseActualizada = {
-        ...frasesJSON[FraseIndex],
-        ...result.data
-    }
-
-    //Reemplazamos la frase desactualizada por la frase actualizada
-    frasesJSON[FraseIndex] = fraseActualizada
-
-    //Mostramos la frase actualizada
-    return res.json(fraseActualizada)
 
 })
 
 //DELETE - Borramos una frase por su Id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     //Capturamos id
     const { id } = req.params
 
     //Buscamos Id
-    const FraseIndex = frasesJSON.findIndex(frase => frase.id === id)
+    const FraseIndex = await Frase.delete({ id })
 
     //Verificando si encontró el Id
-    if (FraseIndex === -1) {
+    if (FraseIndex === false) {
+
         return res.status(404).json({ mesagge: 'Frase no encontrada' })
+
     } else {
-        //Guardando la frase que se va a borrar para mostrarla
-        const fraseABorrar = frasesJSON[FraseIndex]
 
-        //Borrando la frase
-        frasesJSON.splice(FraseIndex, 1)
-
-        return res.json({ message: `Frase borrada: ${fraseABorrar.frase}` })
+        return res.json({ message: `Frase borrada.` })
     }
 
 })
